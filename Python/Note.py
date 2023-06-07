@@ -35,7 +35,7 @@ class Note:
         note.body = body
 
     def set_date(note):
-        note.date = str(datetime.now().strftime("%d.%m.%Y"))
+        note.date = str(datetime.now().strftime("%d.%m.%Y "))
 
     def to_string(note):
         return note.id + ';' + note.title + ';' + note.body + ';' + note.date

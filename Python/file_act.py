@@ -1,18 +1,18 @@
 import Note
 
 
-def write_file(array, mode):
-    file = open("notes.csv", mode='w', encoding='utf-8')
-    file.seek(0)
-    file.close()
-    file = open("notes.csv", mode=mode, encoding='utf-8')
+def write(array, mode):
+    note1 = open("notes.csv", mode='w', encoding='utf-8')
+    note1.seek(0)
+    note1.close()
+    note1 = open("notes.csv", mode=mode, encoding='utf-8')
     for notes in array:
-        file.write(Note.Note.to_string(notes))
-        file.write('\n')
-    file.close
+        note1.write(Note.Note.to_string(notes))
+        note1.write('\n')
+    note1.close
 
 
-def read_file():
+def read():
     try:
         array = []
         file = open("notes.csv", "r", encoding='utf-8')

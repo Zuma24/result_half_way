@@ -1,4 +1,4 @@
-from Python import file_operation
+from Python import file_act as file
 import Note
 import user as u
 
@@ -7,20 +7,20 @@ number = 2  # сколько знаков МИНИМУМ может быть в 
 
 def add():
     note = u.create_note(number)
-    array = file_operation.read_file()
+    array = file.read()
     for notes in array:
         if Note.Note.get_id(note) == Note.Note.get_id(notes):
             Note.Note.set_id(note)
     array.append(note)
-    file_operation.write_file(array, 'a')
+    file.write(array, 'a')
     print('Заметка добавлена...')
 
 
 def show(text):
     logic = True
-    array = file_operation.read_file()
+    array = file.read()
     if text == 'date':
-        date = input('Введите дату в формате dd.mm.yyyy: ')
+        date = input('Введите дату в формате дд.мм.гг: ')
     for notes in array:
         if text == 'all':
             logic = False
@@ -33,12 +33,12 @@ def show(text):
             if date in Note.Note.get_date(notes):
                 print(Note.Note.map_note(notes))
     if logic == True:
-        print('Нет ни одной заметки...')
+        print('Нет заметок')
 
 
 def id_edit_del_show(text):
     id = input('Введите id необходимой заметки: ')
-    array = file_operation.read_file()
+    array = file.read()
     logic = True
     for notes in array:
         if id == Note.Note.get_id(notes):
@@ -56,4 +56,4 @@ def id_edit_del_show(text):
                 print(Note.Note.map_note(notes))
     if logic == True:
         print('Такой заметки нет, возможно, вы ввели неверный id')
-    file_operation.write_file(array, 'a')
+    file.write(array, 'a')

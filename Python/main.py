@@ -1,3 +1,3 @@
-from Python import start_select as r
+from Python import start_select as s
 
-r.start()
+s.start()
